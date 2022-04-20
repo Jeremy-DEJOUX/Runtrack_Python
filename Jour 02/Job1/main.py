@@ -21,7 +21,7 @@ class Personne:
 
 class Livre():
 
-    def __init__(self, titre, Auteur):
+    def __init__(self, titre, Auteur:object):
         self.titre = titre
         self.auteur = Auteur
 
@@ -44,11 +44,12 @@ class Auteur(Personne):
 
     def ecrirUnLivre(self):
         titre = input('Entrez un titre de Livre: ')
+        newLivre = Livre(titre, self)
+        self.oeuvres.append([newLivre.titre, self.nom, self.prenom])
+        return newLivre
 
-        newLivre = Livre(titre)
-        self.oeuvres.append([newLivre.titre, self.nom])
-        print(self.oeuvres)
+L1 = Auteur('Jean', 'Michel')
+L1 = L1.ecrirUnLivre()
+L1.Affichage()
 
-# Auteur('Jean', 'Michel').listeOeuvre()  
-# Auteur('Michel', 'Jean').listeOeuvre()
-Livre('Livres01', Auteur('jean', 'Michel')).Affichage() 
+        
